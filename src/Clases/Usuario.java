@@ -8,6 +8,7 @@ public class Usuario {
 	private String username;
 	private String password;
 	
+	
 	public int getId() {
 		return id;
 	}
@@ -39,5 +40,33 @@ public class Usuario {
 		this.password = password;
 	}
 	
+	public Usuario(String name, String last_name, String username, String password) {
+		this.name = name;
+		this.last_name = last_name;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public boolean usernameValidation(){
+		for(int i=0; i<System_Control.listaUsuario.length;i++){
+			if(System_Control.listaUsuario[i] == null){
+			}else{
+				if(username.equals(System_Control.listaUsuario[i].getUsername())){
+				return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public boolean registerUser(Usuario user){
+		for(int i=0; i<System_Control.listaUsuario.length;i++){
+			if(System_Control.listaUsuario[i] == null){
+				System_Control.listaUsuario[i] = user;
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
