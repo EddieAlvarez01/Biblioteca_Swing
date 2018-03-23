@@ -14,6 +14,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -22,6 +23,8 @@ public class Login extends JPanel{
 	
 	JButton enter = new JButton("Entrar");
 	JButton register = new JButton("Registro");
+	JTextField name = new JTextField(10);
+	JPasswordField password = new JPasswordField(10);
 	
 	public Login(){
 		JPanel titlePanel = new JPanel();
@@ -32,8 +35,6 @@ public class Login extends JPanel{
 		titlePanel.add(tittle);
 		JPanel datosPanel = new JPanel();
 		datosPanel.setLayout(new BoxLayout(datosPanel, BoxLayout.Y_AXIS));
-		JTextField name = new JTextField(10);
-		JPasswordField password = new JPasswordField(10);
 		datosPanel.add(titlePanel);
 		datosPanel.add(name);
 		datosPanel.add(password);
@@ -53,6 +54,7 @@ public class Login extends JPanel{
 			}
 	
 		});
+		enter.addActionListener(login);
 		buttonsPanel.add(enter);
 		buttonsPanel.add(register);
 		datosPanel.add(buttonsPanel);
@@ -63,4 +65,27 @@ public class Login extends JPanel{
 	public String Reference(String reference){
 		return reference;
 	}
+	
+	ActionListener login = new ActionListener(){
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			String username = name.getText();
+			String pass = new String(password.getPassword());
+			if(System_Control.validateUsername(username, pass) == true){
+				JPanel panel = (JPanel)enter.getParent().getParent().getParent().getParent();
+				CardLayout card = (CardLayout)panel.getLayout();
+				if(username.equals("admin")){
+					card.show(panel, "panelAdmin");
+				}else{
+					System_Window.loginUser(username);
+					card.show(panel, "panelReading");
+				}
+			}else{
+				JOptionPane.showMessageDialog(null, "Credenciales Incorrectos", "Error",JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		
+	};
 }
