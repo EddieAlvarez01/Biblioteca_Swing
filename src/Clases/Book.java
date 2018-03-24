@@ -2,16 +2,17 @@ package Clases;
 
 public class Book {
 	
-	private int id;
+	private String id;
 	private String title;
 	private String author;
 	private String theme;
 	private int noPages;
+	private boolean available;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -39,13 +40,21 @@ public class Book {
 		this.noPages = noPages;
 	}
 	
-	public Book(int id, String title, String author, String theme, int noPages) {
+	public boolean isAvailable() {
+		return available;
+	}
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
+	public Book(String id, String title, String author, String theme, int noPages, boolean available) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.theme = theme;
 		this.noPages = noPages;
+		this.available = available;
 	}
 	
 }

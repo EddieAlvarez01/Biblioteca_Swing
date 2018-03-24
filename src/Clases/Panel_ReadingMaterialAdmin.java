@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -54,6 +56,7 @@ public class Panel_ReadingMaterialAdmin extends JPanel{
 		tablePanel.setViewportView(tableMaterials);
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(new FlowLayout());
+		btnCharge.addActionListener(chancetoCharge);
 		buttonsPanel.add(btnManage);
 		buttonsPanel.add(btnCharge);
 		panelBorder.setLayout(new BorderLayout());
@@ -77,6 +80,17 @@ public class Panel_ReadingMaterialAdmin extends JPanel{
 				}
 			}
 		}
+	};
+	
+	ActionListener chancetoCharge = new ActionListener(){
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JPanel panel = (JPanel)btnCharge.getParent().getParent().getParent().getParent();
+			CardLayout card = (CardLayout)panel.getLayout();
+			card.show(panel, "panelCharge");
+		}
+		
 	};
 	
 }

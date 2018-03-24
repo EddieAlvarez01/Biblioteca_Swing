@@ -14,6 +14,7 @@ public final class System_Window extends JFrame{
 	Registry registryPanel = new Registry();
 	static Panel_ReadingMaterial panelReading = new Panel_ReadingMaterial();
 	Panel_ReadingMaterialAdmin panelAdmin = new Panel_ReadingMaterialAdmin();
+	CargaMasiva charge = new CargaMasiva();
 	
 	public System_Window(){
 		panel.setLayout(card);
@@ -21,6 +22,7 @@ public final class System_Window extends JFrame{
 		panel.add(registryPanel, "registryPanel");
 		panel.add(panelReading, "panelReading");
 		panel.add(panelAdmin, "panelAdmin");
+		panel.add(charge, "panelCharge");
 		getContentPane().add(panel, BorderLayout.CENTER);
 		card.show(panel, "panelReading");
 		setSize(800,600);

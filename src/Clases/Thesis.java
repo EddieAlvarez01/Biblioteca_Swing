@@ -1,17 +1,18 @@
 package Clases;
 
 public class Thesis {
-	private int id;
+	private String id;
 	private String title;
 	private String author;
 	private String grade;
 	private String theme;
 	private int year;
+	private boolean available;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -45,7 +46,14 @@ public class Thesis {
 		this.year = year;
 	}
 	
-	public Thesis(int id, String title, String author, String grade, String theme, int year) {
+	public boolean isAvailable() {
+		return available;
+	}
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
+	public Thesis(String id, String title, String author, String grade, String theme, int year, boolean available) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -53,6 +61,7 @@ public class Thesis {
 		this.grade = grade;
 		this.theme = theme;
 		this.year = year;
+		this.available = available;
 	}
 	
 }

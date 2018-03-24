@@ -4,16 +4,17 @@ import java.util.Calendar;
 
 public class Magazine {
 	
-	private int id;
+	private String id;
 	private String title;
 	private String company;
 	private Calendar date;
 	private String theme;
+	private boolean available;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -41,13 +42,22 @@ public class Magazine {
 		this.theme = theme;
 	}
 	
-	public Magazine(int id, String title, String company, Calendar date, String theme) {
+	public boolean isAvailable() {
+		return available;
+	}
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
+	public Magazine(String id, String title, String company, Calendar date, String theme, boolean available) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.company = company;
 		this.date = date;
 		this.theme = theme;
+		this.available = available;
 	}
 	
 	
