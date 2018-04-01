@@ -63,10 +63,12 @@ public class Registry extends JPanel{
 						|| coincidence.matcher(sPassword).find() == true){
 					JOptionPane.showMessageDialog(null, "No puede haber campos vacios", "Error",JOptionPane.ERROR_MESSAGE);
 				}else{
-					Usuario user = new Usuario(sName, slastName, sUsername, sPassword);
+					String borrowed[] = new String[150];
+					Usuario user = new Usuario(sName, slastName, sUsername, sPassword, 0, borrowed);
 					if (user.usernameValidation() == true){
 						if (user.registerUser(user) == true){
 							JOptionPane.showMessageDialog(null, "Se ha registrado correctamente", "Succes",JOptionPane.INFORMATION_MESSAGE);
+							System_Window.updateUsers();
 							JButton button = (JButton)e.getSource();
 							JPanel panel = (JPanel)button.getParent();
 							JPanel panel2 = (JPanel)panel.getParent();

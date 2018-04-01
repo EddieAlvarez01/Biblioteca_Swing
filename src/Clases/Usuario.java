@@ -7,6 +7,8 @@ public class Usuario {
 	private String last_name;
 	private String username;
 	private String password;
+	private int borrowedBook;
+	private String borrowed[];
 	
 	
 	public int getId() {
@@ -40,11 +42,33 @@ public class Usuario {
 		this.password = password;
 	}
 	
-	public Usuario(String name, String last_name, String username, String password) {
+	public int getBorrowedBook() {
+		return borrowedBook;
+	}
+	
+	public void setBorrowedBook(int borrowedBook) {
+		this.borrowedBook = borrowedBook;
+	}
+	
+	public String[] getBorrowed() {
+		return borrowed;
+	}
+	
+	public void setBorrowed(String[] borrowed) {
+		this.borrowed = borrowed;
+	}
+	
+	public Usuario(String name, String last_name, String username, String password, int borrowedBook, String[] borrowed) {
 		this.name = name;
 		this.last_name = last_name;
 		this.username = username;
 		this.password = password;
+		this.borrowedBook = borrowedBook;
+		this.borrowed = borrowed;
+	}
+	
+	public Usuario(String username){
+		this.username = username;
 	}
 	
 	public boolean usernameValidation(){

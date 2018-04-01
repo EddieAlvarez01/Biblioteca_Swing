@@ -7,7 +7,7 @@ public class Magazine {
 	private String id;
 	private String title;
 	private String company;
-	private Calendar date;
+	private String date;
 	private String theme;
 	private boolean available;
 	
@@ -29,10 +29,10 @@ public class Magazine {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public Calendar getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Calendar date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getTheme() {
@@ -50,7 +50,7 @@ public class Magazine {
 		this.available = available;
 	}
 	
-	public Magazine(String id, String title, String company, Calendar date, String theme, boolean available) {
+	public Magazine(String id, String title, String company, String date, String theme, boolean available) {
 		super();
 		this.id = id;
 		this.title = title;

@@ -77,10 +77,14 @@ public class Login extends JPanel{
 				JPanel panel = (JPanel)enter.getParent().getParent().getParent().getParent();
 				CardLayout card = (CardLayout)panel.getLayout();
 				if(username.equals("admin")){
-					card.show(panel, "panelAdmin");
+					System_Control.session = username;
+					card.show(panel, "menuAdmin");
 				}else{
+					System_Control.session = username;
 					System_Window.loginUser(username);
-					card.show(panel, "panelReading");
+					System_Window.updateLblMenu();
+					System_Window.updateTable();
+					card.show(panel, "menuUser");
 				}
 			}else{
 				JOptionPane.showMessageDialog(null, "Credenciales Incorrectos", "Error",JOptionPane.ERROR_MESSAGE);
